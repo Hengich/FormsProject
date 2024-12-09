@@ -1,0 +1,23 @@
+[
+    {
+        "model": "api.formtemplate",
+        "fields": {
+            "name": "Contact Form",
+            "fields": {
+                "user_email": "email",
+                "user_phone": "phone"
+            }
+        }
+    },
+    {
+        "model": "api.formtemplate",
+        "fields": {
+            "name": "Order Form",
+            "fields": {
+                "order_date": "date",
+                "order_email": "email",
+                "order_phone": "phone"
+            }
+        }
+    }
+]
