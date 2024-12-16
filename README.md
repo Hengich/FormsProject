@@ -23,12 +23,12 @@ Web-приложение для определения заполненных ф
       MONGO_DB_PASSWORD=password
       ```
 
-2. Находясь в папке `FormsProject` выполните команду `docker-compose -f docker-compose.yml up --build`.
+2. Находясь в папке проекта `FormsProject` выполните команду `docker-compose -f docker-compose.yml up --build`.
 3. По адресу http://localhost:8000 будет доступен проект
 4. Необходимо выполнить миграции, для начала нужно попасть в контейнер `docker exec -t -i formsproject-backend-1 /bin/bash`
 5. Затем выполните команду `python manage.py migrate`
 6. Находясь в папке `/app#` выполните команду `python manage.py loaddata api/fixtures/form_templates.json`
-7. Теперь вы можете проверить работоспособность проекта выполнив команду `pytest`
+7. Теперь вы можете проверить работоспособность проекта, выполнив команду `pytest`
 
 ### О проекте.
 

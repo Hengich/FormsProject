@@ -3,9 +3,9 @@ version: "3.9"
 services:
   mongodb:
     environment:
-      MONGO_INITDB_DATABASE: mongodb
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: ${MONGO_DB_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_PASSWORD}
     hostname: mongodb
     image: mongo
     ports:
