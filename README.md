@@ -22,6 +22,23 @@ Web-приложение для определения заполненных ф
       MONGO_DB_USERNAME=root
       MONGO_DB_PASSWORD=password
       ```
+<details>
+<summary>
+Вариант генерации django-ключа:
+</summary>
+
+1. Запускаем python-консоль `python` 
+2. Вводим следующие команды:
+```
+    from django.core.management.utils import get_random_secret_key
+    print(get_random_secret_key())
+```
+3. Копируем ключ из консоли в .env - файл. 
+```ini
+      SECRET_KEY=django-secret-<КЛЮЧ ИЗ КОНСОЛИ>
+```
+</details>
+
 
 2. Находясь в папке проекта `FormsProject` выполните команду `docker-compose -f docker-compose.yml up --build`.
 3. По адресу http://localhost:8000 будет доступен проект
