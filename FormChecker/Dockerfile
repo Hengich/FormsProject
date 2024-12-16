@@ -13,5 +13,3 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-
-CMD ["sh", "-c", "sleep 10 && python manage.py runserver 0:8000"]

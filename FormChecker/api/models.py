@@ -1,6 +1,7 @@
-from django.db import models
+from djongo import models
 
 from .consts import MAX_NAME_LENGTH
+
 
 class FormTemplate(models.Model):
     name = models.CharField(
