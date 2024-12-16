@@ -1,4 +1,4 @@
-SECRET_KEY=django-insecure-qu0crs6hcw760r*h2xtp!=9-*z$2c(p4z)lr*at2pnd3$+!@ll
+SECRET_KEY=django-insecure-example
 ALLOWED_HOSTS=localhost,127.0.0.1
 DEBUG=True
 MONGO_DB_HOST=mongodb://mongodb:27017
