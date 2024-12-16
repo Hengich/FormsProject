@@ -7,10 +7,6 @@ from .models import FormTemplate
 
 
 class FormAPIView(APIView):
-    def post(self, request, *args, **kwargs):
-        return Response({"status": "ok"}, status=200)
-
-class FormAPIView(APIView):
     """
     Обработчик POST-запросов для определения шаблона формы.
     """
@@ -23,10 +19,9 @@ class FormAPIView(APIView):
         matched_template = self.find_matching_template(data, templates)
 
         if matched_template:
-            # Если шаблон найден, возвращаем его имя
-            return Response({"template_name": matched_template.name}, status=status.HTTP_200_OK)
+            return Response({'template_name': matched_template.name},
+                            status=status.HTTP_200_OK)
         else:
-            # Если шаблон не найден, возвращаем определенные типы полей
             validated_fields = self.validate_fields(data)
             return Response(validated_fields, status=status.HTTP_200_OK)
 
@@ -35,9 +30,10 @@ class FormAPIView(APIView):
         Находит подходящий шаблон формы по переданным данным.
         """
         for template in templates:
-            template_fields = template.fields  # Поля шаблона
+            template_fields = template.fields
             if all(
-                key in data and self.determine_field_type(data[key]) == template_fields[key]
+                key in data and
+                self.determine_field_type(data[key]) == template_fields[key]
                 for key in template_fields
             ):
                 return template
@@ -57,7 +53,7 @@ class FormAPIView(APIView):
         """
         Определяет тип переданного значения: дата, телефон, email или текст.
         """
-        date_formats = ["%d.%m.%Y", "%Y-%m-%d"]
+        date_formats = ['%d.%m.%Y', '%Y-%m-%d']
         for fmt in date_formats:
             try:
                 datetime.strptime(value, fmt)
@@ -65,11 +61,11 @@ class FormAPIView(APIView):
             except ValueError:
                 pass
 
-        phone_pattern = r"^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$"
+        phone_pattern = r'^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$'
         if re.match(phone_pattern, value):
             return "phone"
 
-        email_pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+        email_pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
         if re.match(email_pattern, value):
             return "email"
 

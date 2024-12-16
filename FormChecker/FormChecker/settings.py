@@ -90,11 +90,14 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': os.environ.get('MONGO_DB_NAME'),
         'CLIENT': {
-            'host': os.environ.get('MONGO_DB_URI'),
-        },
-    }
+            'host': os.environ.get('MONGO_DB_HOST'),
+            'username': os.environ.get('MONGO_DB_USERNAME'),
+            'password': os.environ.get('MONGO_DB_PASSWORD'),
+            'authSource': 'admin',
+            'authMechanism': 'SCRAM-SHA-1',
+      }
+  }
 }
-
 
 
 # Password validation
