@@ -15,7 +15,6 @@ class FormAPIView(APIView):
         data = request.data
         templates = FormTemplate.objects.all()
 
-        # Проверяем шаблоны форм
         matched_template = self.find_matching_template(data, templates)
 
         if matched_template:
